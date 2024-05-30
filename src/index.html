@@ -6,6 +6,29 @@
     <link href="./output.css" rel="stylesheet" />
     <script src="./assets/fontawesome/js/fontawesome.min.js"></script>
     <script src="./assets/fontawesome/js/solid.min.js"></script>
+    <script>
+      window.onload = ()=>{
+        const mobileMenuIcon = document.getElementById("mobile-menu-button");
+        mobileMenuIcon.addEventListener("click",()=>{
+          if(mobileMenuIcon.classList.contains("open")){
+            mobileMenuIcon.classList.remove("open")
+          }
+          else{
+            mobileMenuIcon.classList.add("open")
+          }
+        })
+
+        const ticketMenuItem = document.getElementById("ticket-menu-item");
+        ticketMenuItem.addEventListener("click",()=>{
+          if(ticketMenuItem.classList.contains("open")){
+            ticketMenuItem.classList.remove("open")
+          }
+          else{
+            ticketMenuItem.classList.add("open")
+          }
+        })
+      }
+    </script>
   </head>
   <body>
     <main>
@@ -19,13 +42,43 @@
               tw:<span class="text-sky-900">mf</span>
             </div>
           </div>
+
+
+          <!-- mobile -->
           <div class="md:hidden block ml-auto pr-4 my-auto cursor-pointer">
-            <div id="mobile-menu-button">
-              <div class="bg-zinc-200 rounded-full w-8 h-1"></div>
-              <div class="bg-zinc-200 rounded-full w-8 h-1 mt-1"></div>
-              <div class="bg-zinc-200 rounded-full w-8 h-1 mt-1"></div>
+            <div id="mobile-menu-button" class="group peer">
+              <div class="bg-zinc-200 rounded-full w-8 h-1 group-open:rotate-45 transition-all group-open:top-2 relative top-0"></div>
+              <div class="bg-zinc-200 rounded-full w-8 h-1 mt-1 group-open:opacity-0 opacity-100 transition-all"></div>
+              <div class="bg-zinc-200 rounded-full w-8 h-1 mt-1 group-open:-rotate-45 transition-all group-open:-top-2 relative top-0"></div>
+            </div>
+
+            <div class="absolute bg-gradient-to-r from-rose-500 to-pink-500 left-0 w-full top-[62px] peer-open:block hidden">
+              <div class="flex relative h-full cursor-pointer items-center justify-center p-4 font-bold text-pink-200 hover:text-zinc-200 transition-colors hover:bg-white/10">
+                <span>Home</span>
+              </div>
+              <div class="flex relative h-full cursor-pointer items-center justify-center p-4 font-bold text-pink-200 hover:text-zinc-200 transition-colors hover:bg-white/10">
+                <span>LineUp</span>
+              </div>
+              <div id="ticket-menu-item" class="group relative h-full cursor-pointer  text-pink-200 hover:text-zinc-200 transition-colors hover:bg-white/10">
+                <div class="p-4 text-center font-bold">Tickets</div>
+                <div class="hidden group-open:block">
+                  <div class="text-center p-4 relative text-pink-200 hover:text-zinc-200 hover:bg-white/5 transition-colors ease-in-out">
+                    <span>Single day ticket</span>
+                  </div>
+                  <div class="text-center p-4 relative text-pink-200 hover:text-zinc-200 hover:bg-white/5 transition-colors ease-in-out">
+                    <span>7 day ticket</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex relative h-full cursor-pointer items-center justify-center p-4 font-bold text-pink-200 hover:text-zinc-200 transition-colors hover:bg-white/10">
+                <span>Support</span>
+              </div>
             </div>
           </div>
+
+          
+
+          <!-- desktop -->
           <div class="md:flex flex-1 hidden items-center justify-end">
             <div class="menu-item"><span>Home</span></div>
             <div class="menu-item">
